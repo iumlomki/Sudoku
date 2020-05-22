@@ -33,14 +33,14 @@ cc.Class({
 
     onShow() {
         this.mask.node.active = true;
-        let action = cc.moveTo(0.1, cc.p(0, 0));
+        let action = cc.moveTo(0.1, cc.v2(0, 0));
         this.panel.node.runAction(action);
     },
 
     onHide() {
         this.panel.node.getChildByName('ButtonCancel').active = true;
         this.mask.node.active = false;
-        let action = cc.moveTo(0.1, cc.p(0, -640));
+        let action = cc.moveTo(0.1, cc.v2(0, -640));
         this.panel.node.runAction(action);
     },
 

@@ -88,8 +88,9 @@ cc.Class({
 	},
 
 	_onCellSelected(event) {
+        console.log("Selected", event);
 		this._unhighlightCells();
-		this._lastSelected = event.detail;
+		this._lastSelected = event;
 		this._highlightCells();
 	},
 
@@ -120,11 +121,12 @@ cc.Class({
 	},
 
 	_onNumberClicked(event) {
+        console.log("Number", event, this._lastSelected);
 		if (!this._lastSelected) {
 			return;
 		}
 
-		let number = parseInt(event.detail.number);
+		let number = parseInt(event.number);
 
 		if (this._isMarked) {
 			this._fillMark(number);
@@ -170,7 +172,7 @@ cc.Class({
 	},
 
 	_onNewGameByDiff(event) {
-		this._initBoard(event.detail);
+		this._initBoard(event);
 	},
 
 	_unhighlightCells() {
@@ -229,11 +231,11 @@ cc.Class({
 	},
 
 	_setImageMark() {
-		if (this._isMarked) {
-			this.imageMark.spriteFrame = new cc.SpriteFrame(cc.url.raw('resources/On.png'));
-		} else {
-			this.imageMark.spriteFrame = new cc.SpriteFrame(cc.url.raw('resources/Off.png'));
-		}
+		// if (this._isMarked) {
+		// 	this.imageMark.spriteFrame = new cc.SpriteFrame(cc.url.raw('resources/On.png'));
+		// } else {
+		// 	this.imageMark.spriteFrame = new cc.SpriteFrame(cc.url.raw('resources/Off.png'));
+		// }
 	},
 
 	_onHint() {
